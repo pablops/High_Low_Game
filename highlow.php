@@ -1,9 +1,14 @@
 <?php 
 
+$randomn = mt_rand($argv[1], $argv[2]);
+var_dump($randomn);
+
 
 function playHighLow(){
 
-$randomn = mt_rand(0, 100);
+// $randomn = rand(php1, 100);
+echo $randomn;
+// echo $random;
 $guess;
 $score = 100;
 
@@ -11,7 +16,8 @@ $score = 100;
 		// echo $randomn;
 		fwrite(STDOUT, 'Guess a number between 1 & 100 ');
 
-		$guess = trim(fgets(STDIN));
+		$guess = intval(fgets(STDIN));
+		var_dump($guess);
 		if (!is_numeric($guess)){
 			echo "make sure yr guess is a number between 1 and 100";
 			// playHighLow();
@@ -24,18 +30,22 @@ $score = 100;
 			playHighLow();
 		}
 		elseif($guess < $randomn - 15){
+			var_dump($guess);
 			echo "MUCH HIGHER!" . PHP_EOL;
 			$score--;
 		}
 		elseif($guess < $randomn){
+			var_dump($guess);
 			echo "HIGHER!" . PHP_EOL;
 			$score--;
 		}
 		elseif($guess > $randomn + 15){
+			var_dump($guess);
 			echo "MUCH LOWER!" . PHP_EOL;
 			$score--;
 		}
 		elseif($guess > $random){
+			var_dump($guess);
 			echo "LOWER" . PHP_EOL;
 			$score--;
 		}
